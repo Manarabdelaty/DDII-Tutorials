@@ -64,16 +64,16 @@
   
   ### Build Covered Source Code
   
-  First, clone covered [repo]() . 
+  First, clone covered [repo](https://github.com/Manarabdelaty/verilog-covered) . 
   
   ``
-  git clone 
+  git clone https://github.com/Manarabdelaty/verilog-covered
   ``
   
   Then go to covered repo by invoking
   
   ``
-  cd <covered-dir-name>
+  cd verilog-covered
   ``
   
   Configure the build by invoking
