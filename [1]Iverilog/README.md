@@ -29,9 +29,9 @@
   Install GTKWave: Check [sourceforge](http://gtkwave.sourceforge.net/)
   
   
-  ## Covered Installation
+## Covered Installation
  
- #### Install Dependencies
+ #### Dependencies
  
   - gcc 
   - flex 
@@ -114,23 +114,25 @@
 
 2) Compile your RTL module and testbench into what is called vvp assembly file using iverilog command
 
-  ``
+  ```
   iverilog <RTL-file> <Testbench-file> -o <vvp-file>
-  ``
+  ```
 
   Ex: ``iverilog rippleCarryAdder.v rippleCarryAdder_tb.v -o rca.vvp``
 
 3) Call the vvp engine to run the simulation.
 
-  ``vvp <vvp-file>``
+  ```
+  vvp <vvp-file>
+  ```
 
   Ex: ``vvp rca.vvp``
 
 3) View the waveform using the GTKwave application
 
-  ``
+  ```
   gtkwave <vcd-file>
-  ``
+  ```
 
   Ex: ``gtkwave rca.vcd``
 
