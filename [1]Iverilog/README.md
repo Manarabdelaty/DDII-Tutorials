@@ -100,66 +100,70 @@
 
 1) Before working with iverilog workflow, you need to specify the path to the output vcd file and the dump level. This is done by using (in the testbench module) the following system tasks:
  
-```
-$dumpfile(“<path-to-your-vcd-file>”);
-$dumpvars(<dump-level>, <module-name>);
-```
+  ```
+  $dumpfile(“<path-to-your-vcd-file>”);
+  $dumpvars(<dump-level>, <module-name>);
+  ```
 
-For example, the following dumps all variables inside the testbench and the modules instantiated in a file called ``dut.vcd``
+  For example, the following dumps all variables inside the testbench and the modules instantiated in a file called ``dut.vcd``
 
-```
-$dumpfile(“dut.vcd”);
-$dumpvars(0, RippleCarryAdder_tb);
-```
+  ```
+  $dumpfile(“dut.vcd”);
+  $dumpvars(0, RippleCarryAdder_tb);
+  ```
 
 2) Compile your RTL module and testbench into what is called vvp assembly file using iverilog command
 
-``
-iverilog <RTL-file> <Testbench-file> -o <vvp-file>
-``
+  ``
+  iverilog <RTL-file> <Testbench-file> -o <vvp-file>
+  ``
 
-Ex: ``iverilog rippleCarryAdder.v rippleCarryAdder_tb.v -o rca.vvp``
+  Ex: ``iverilog rippleCarryAdder.v rippleCarryAdder_tb.v -o rca.vvp``
 
 3) Call the vvp engine to run the simulation.
 
-``vvp <vvp-file>``
+  ``vvp <vvp-file>``
 
-Ex: ``vvp rca.vvp``
+  Ex: ``vvp rca.vvp``
 
-View the signals using the GTKwave application
+3) View the waveform using the GTKwave application
 
-``
-gtkwave <vcd-file>
-``
+  ``
+  gtkwave <vcd-file>
+  ``
 
-Ex: ``gtkwave rca.vcd``
+  Ex: ``gtkwave rca.vcd``
 
-This will open the grkwave app. You can add signals to the view by selecting them and clicking on the ``append`` button. To view the whole simulation time, press zoom fit from the top toolbar
+  This will open the grkwave app. You can add signals to the view by selecting them and clicking on the ``append`` button.
+  
+  To view the whole simulation time, press zoom fit from the top toolbar
 
 ### Covered
 
-Generating covered reports is done on two steps. First invoke the score command as follows: 
+Generating covered reports is done on two steps. 
 
-```
-covered score -t <tb-top-module> -v <testbench-file> -v <module-file> -vcd <dumped-vcd-file> -o <cdd-output-file-name>
-```
+1) First invoke the score command as follows: 
 
-Ex: 
+  ```
+  covered score -t <tb-top-module> -v <testbench-file> -v <module-file> -vcd <dumped-vcd-file> -o <cdd-output-file-name>
+  ```
 
-```
-covered score -t RippleCarryAdder_tb -v dut_tb.v -v dut.v -vcd dut.vcd -o top.cdd
-```
+  Ex: 
 
-Then invoke the report command: 
+  ```
+  covered score -t RippleCarryAdder_tb -v dut_tb.v -v dut.v -vcd dut.vcd -o top.cdd
+  ```
 
-```
-covered report <cdd-file-name>
-```
+2) Then invoke the report command: 
 
-Ex: 
+  ```
+  covered report <cdd-file-name>
+  ```
 
-```
-covered report top.cdd
-```
+  Ex: 
+
+  ```
+  covered report top.cdd
+  ```
 
  
