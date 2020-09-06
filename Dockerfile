@@ -26,7 +26,6 @@ RUN git clone https://github.com/Manarabdelaty/verilog-covered \
     && make \
     && make install 
 
-
 # Install Yosys
 RUN apt-get install -y yosys
 
